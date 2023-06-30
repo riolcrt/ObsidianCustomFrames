@@ -3,6 +3,8 @@ name: Release Obsidian plugin
 on:
   workflow_dispatch
 
+permissions: read-all|write-all
+
 env:
   PLUGIN_NAME: obsidian-custom-frames # Change this to match the id of your plugin.
 
