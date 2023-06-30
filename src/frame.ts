@@ -12,7 +12,7 @@ export class CustomFrame {
         this.data = data;
     }
 
-    create(parent: HTMLElement, additionalStyle: string = undefined, urlSuffix: string = undefined): void {
+    create(parent: HTMLElement, url: string = undefined, additionalStyle: string = undefined, urlSuffix: string = undefined): void {
         let style = `padding: ${this.settings.padding}px;`;
         if (additionalStyle)
             style += additionalStyle;
@@ -44,6 +44,9 @@ export class CustomFrame {
         this.frame.setAttribute("style", style);
 
         let src = this.data.url;
+        if (url){
+            src = url;
+        }
         if (urlSuffix) {
             if (!urlSuffix.startsWith("/"))
                 src += "/";
