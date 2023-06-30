@@ -59,6 +59,9 @@ export default class CustomFramesPlugin extends Plugin {
                 return;
             }
 
+            let urlMatch = /url:([^\n]+)/gi.exec(s);
+            let url = urlMatch && urlMatch[1].trim();
+
             let styleMatch = /style:([^\n]+)/gi.exec(s);
             let style = styleMatch && styleMatch[1].trim();
             style ||= "height: 600px;";
@@ -68,7 +71,7 @@ export default class CustomFramesPlugin extends Plugin {
             urlSuffix ||= "";
 
             let frame = new CustomFrame(this.settings, data);
-            frame.create(e, style, urlSuffix);
+            frame.create(e,url, style, urlSuffix);
         });
     }
 
